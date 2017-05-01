@@ -58,7 +58,8 @@ health() {
 snapshot() {
 
     if [ ! -z "$CONSUL_SNAPSHOT_FILE" ]; then
-        consul snapshot save "$CONSUL_SNAPSHOT_FILE"
+        eval FILE_NAME=${CONSUL_SNAPSHOT_FILE}
+        consul snapshot save "$FILE_NAME"
     fi
 }
 

@@ -15,7 +15,7 @@ services:
         - CONSUL_BIND_INTERFACE=eth0
         - CONSUL=consul
         - CONSUL_CHECK_LEADER=true
-        - CONSUL_SNAPSHOT_FILE=/snapshots/blabla.snap
+        - CONSUL_SNAPSHOT_FILE=consul-$$(hostname)-$$(date +%Y%m%d%H%M).snap
     deploy:
         replicas: 3
         placement:

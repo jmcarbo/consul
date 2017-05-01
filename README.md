@@ -77,7 +77,7 @@ consul_consul.4.qws5isxw6gpm@swarm-3    | 2017/01/26 00:11:37     [CP] Leader is
 consul_consul.3.l0e0zr114x50@swarm-1    | 2017/01/26 00:11:42     [CP] I'm leader (172.20.0.6)
 ```
 
-- `CONSUL_SNAPSHOT_FILE` if defined consul saves snapshots in stated file.
+- `CONSUL_SNAPSHOT_FILE` if defined consul saves snapshots in stated file. The variable is evaluated before each snapshot so we can use, for example: CONSUL_SNAPSHOT_FILE=consul-$(hostname)-$(date +%Y%m%d%H%M).snap
 
 - `CONSUL_SNAPSHOT_FREQUENCY` when to save snapshots default value 1m
 
