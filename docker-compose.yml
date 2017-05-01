@@ -16,6 +16,7 @@ services:
         - CONSUL=consul
         - CONSUL_CHECK_LEADER=true
         - CONSUL_SNAPSHOT_FILE=consul-$$(hostname)-$$(date +%Y%m%d%H%M).snap
+        - CONSUL_SNAPSHOT_FREQUENCY=30s
     deploy:
         replicas: 3
         placement:
