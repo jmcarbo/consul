@@ -15,8 +15,10 @@ services:
         - CONSUL_BIND_INTERFACE=eth0
         - CONSUL=consul
         - CONSUL_CHECK_LEADER=true
-        - CONSUL_SNAPSHOT_FILE=/tmp/consul-$$(hostname)-$$(date +%Y%m%d%H%M).snap
+        - CONSUL_SNAPSHOT_FILE=/snapshots/consul-$$(hostname)-$$(date +%Y%m%d%H%M).snap
         - CONSUL_SNAPSHOT_FREQUENCY=30s
+    volumes:
+      - $PWD/snapshots:/snapshots
     deploy:
         replicas: 3
         placement:
