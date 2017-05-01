@@ -1,10 +1,10 @@
 FROM consul
 
 # Add Containerpilot and set its configuration
-ENV CONTAINERPILOT_VERSION 2.6.0
+ENV CONTAINERPILOT_VERSION 2.7.2
 ENV CONTAINERPILOT file:///etc/containerpilot.json
 
-RUN export CONTAINERPILOT_CHECKSUM=c1bcd137fadd26ca2998eec192d04c08f62beb1f \
+RUN export CONTAINERPILOT_CHECKSUM=e886899467ced6d7c76027d58c7f7554c2fb2bcc \
     && export archive=containerpilot-${CONTAINERPILOT_VERSION}.tar.gz \
     && curl -Lso /tmp/${archive} \
          "https://github.com/joyent/containerpilot/releases/download/${CONTAINERPILOT_VERSION}/${archive}" \
@@ -21,5 +21,5 @@ COPY bin/* /usr/local/bin/
 HEALTHCHECK --interval=30s --timeout=20s --retries=10 CMD curl --fail -s http://localhost:8500/ui/ || exit 1
 
 ENTRYPOINT ["/usr/local/bin/containerpilot", "/usr/local/bin/docker-entrypoint.sh" ]
-CMD ["agent", "-server", "-bootstrap-expect", "3", "-ui", "-client=0.0.0.0", "-retry-interval", "5s", "--log-level", "warn"]
+CMD ["agent", "-server", "-bootstrap-expect", "3", "-ui", "-client=0.0.0.0", "-retry-interval", "5s", "--log-level", "warn", "-disable-host-node-id" ]
 
