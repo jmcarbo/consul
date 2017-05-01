@@ -15,8 +15,7 @@
     {
       "name": "consul-snapshot",
       "command": ["/usr/local/bin/consul-manage","snapshot"],
-      "frequency": "{{.CONSUL_SNAPSHOT_FREQUENCY}}",
-      "timeout": "30s"
+      "frequency": "{{.CONSUL_SNAPSHOT_FREQUENCY}}"
     }
   ]
 }
