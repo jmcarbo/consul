@@ -4,7 +4,7 @@ version: "3"
 services:
 
   consul:
-    image: sdelrio/consul${TAG}
+    image: jmcarbo/consul${TAG}
     labels: [app=consul]
     ports:
         - "8500:8500"

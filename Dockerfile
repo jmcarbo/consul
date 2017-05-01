@@ -18,6 +18,9 @@ RUN export CONTAINERPILOT_CHECKSUM=e886899467ced6d7c76027d58c7f7554c2fb2bcc \
 COPY etc/containerpilot.json etc/
 COPY bin/* /usr/local/bin/
 
+RUN mkdir /snapshots
+VOLUME /snapshots
+
 HEALTHCHECK --interval=30s --timeout=20s --retries=10 CMD curl --fail -s http://localhost:8500/ui/ || exit 1
 
 ENTRYPOINT ["/usr/local/bin/containerpilot", "/usr/local/bin/docker-entrypoint.sh" ]

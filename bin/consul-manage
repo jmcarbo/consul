@@ -55,6 +55,12 @@ health() {
     return 0
 }
 
+snapshot() {
+    if [ ! -z "$CONSUL_SNAPSHOT_FILE" ]; then
+        consul snapshot save "$CONSUL_SNAPSHOT_FILE"
+    fi
+}
+
 _log() {
     echo "    [CP] $@"
 }

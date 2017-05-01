@@ -10,5 +10,13 @@
       "poll": 10,
       "ttl": 25
     }
+  ],
+  "tasks": [
+    {
+      "name": "consul-snapshot",
+      "command": ["/usr/local/bin/consul-manage","snapshot"],
+      "frequency": "1m",
+      "timeout": "30s"
+    }
   ]
 }
